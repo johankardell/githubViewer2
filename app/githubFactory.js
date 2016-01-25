@@ -1,27 +1,25 @@
-(function (module) {
+/* global app */
+
+app.factory("githubFactory", function ($http) {
     'use strict';
-
-    var githubFactory = function ($http) {
-        var getUser = function (username) {
-            var githubApiUrl = "https://api.github.com/users/";
-            return $http.get(githubApiUrl + username)
-                .then(function (response) {
-                    return response.data;
-                });
-        };
-
-        var getRepos = function (user) {
-            return $http.get(user.repos_url)
-                .then(function(response){
-                   return response.data; 
-                });
-        };
-
-        return {
-            getUser: getUser,
-            getRepos: getRepos
-        };
+    
+    var getUser = function (username) {
+        var githubApiUrl = "https://api.github.com/users/";
+        return $http.get(githubApiUrl + username)
+            .then(function (response) {
+                return response.data;
+            });
     };
 
-    module.factory("githubFactory", githubFactory);
-} (angular.module("githubViewer2")));
+    var getRepos = function (user) {
+        return $http.get(user.repos_url)
+            .then(function (response) {
+                return response.data;
+            });
+    };
+
+    return {
+        getUser: getUser,
+        getRepos: getRepos
+    };
+});

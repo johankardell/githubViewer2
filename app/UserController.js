@@ -1,23 +1,20 @@
-(function (module) {
+/* global app */
+
+app.controller("UserController", function ($scope, $routeParams, $log, githubFactory) {
     'use strict';
-
-    var UserController = function ($scope, $routeParams, $log, githubFactory) {
-        var onUsersComplete = function (data) {
-            $scope.user = data;
-            githubFactory.getRepos($scope.user).then(onReposComplete, onError);
-        };
-
-        var onReposComplete = function (data) {
-            $scope.repos = data;
-        };
-
-        var onError = function (message) {
-            $scope.errorMessage = "Error!";
-            $log.log(message);
-        };
-
-        githubFactory.getUser($routeParams.username).then(onUsersComplete, onError);
+    var onUsersComplete = function (data) {
+        $scope.user = data;
+        githubFactory.getRepos($scope.user).then(onReposComplete, onError);
     };
 
-    module.controller("UserController", UserController);
-} (angular.module("githubViewer2")));
+    var onReposComplete = function (data) {
+        $scope.repos = data;
+    };
+
+    var onError = function (message) {
+        $scope.errorMessage = "Error!";
+        $log.log(message);
+    };
+
+    githubFactory.getUser($routeParams.username).then(onUsersComplete, onError);
+}); 
