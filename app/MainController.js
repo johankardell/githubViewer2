@@ -2,7 +2,7 @@
     'use strict';
 
     var MainController = function ($scope, $interval, $location, $log) {
-        $scope.username = "angular";
+        $scope.username;
         $scope.timeout = 10;
 
         var timerInterval = null;
