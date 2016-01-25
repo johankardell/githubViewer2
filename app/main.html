@@ -1,0 +1,9 @@
+<div>
+    <div ng-show="timerEnabled()">
+    Timer: {{ timeout }}
+    </div>
+    <form name="searchUser" ng-submit="search(username)">
+        <input type="text" required placeholder="Enter username" ng-model="username" ng-click="stopTimer()"/>
+        <input type="submit" value="Search" />
+    </form>
+</div>

@@ -1,11 +1,11 @@
 {
-  "name": "ng-gettingStarted",
+  "name": "githubViewer2",
   "main": [
-    "/dist/ng-gettingStarted.min.js",
-    "/dist/ng-gettingStarted.min.css"
+    "/dist/githubViewer2.min.js",
+    "/dist/githubViewer2.min.css"
   ],
   "version": "0.1.0",
-  "description": "ng-gettingStarted",
+  "description": "githubViewer2",
   "authors": [
     "Johan Kardell based on Scott Allens samples"
   ],
