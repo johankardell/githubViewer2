@@ -24,7 +24,7 @@
             }
 
             function onError(message) {
-                $scope.errorMessage = "Error!";
+                $scope.errorMessage = 'Error!';
                 $log.log(message);
             }
 
@@ -32,4 +32,4 @@
                 .then(onUsersComplete, onError);
         }
     }
-} (angular.module("app.githubViewer2")));
+} (angular.module('app.githubViewer2')));

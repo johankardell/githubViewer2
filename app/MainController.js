@@ -37,7 +37,7 @@
 
         function search(username) {
             $log.log('Searching for ' + username);
-            $location.path("/user/" + username);
+            $location.path('/user/' + username);
         }
 
         function stopTimer() {
@@ -45,4 +45,4 @@
             timerInterval = null;
         }
     }
-} (angular.module("app.githubViewer2")));
+} (angular.module('app.githubViewer2')));

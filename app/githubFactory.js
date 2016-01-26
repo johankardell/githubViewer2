@@ -15,18 +15,18 @@
         return factory;
 
         function getUser(username) {
-            var githubApiUrl = "https://api.github.com/users/";
+            var githubApiUrl = 'https://api.github.com/users/';
             return $http.get(githubApiUrl + username)
                 .then(function (response) {
                     return response.data;
                 });
-        };
+        }
 
         function getRepos(user) {
             return $http.get(user.repos_url)
                 .then(function (response) {
                     return response.data;
                 });
-        };
+        }
     }
-} (angular.module("app.githubViewer2")));
+} (angular.module('app.githubViewer2')));

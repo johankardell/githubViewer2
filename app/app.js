@@ -8,14 +8,14 @@
     
     function config($routeProvider){
         $routeProvider
-            .when("/main", {
-                templateUrl: "main.html",
-                controller: "MainController"
+            .when('/main', {
+                templateUrl: 'main.html',
+                controller: 'MainController'
             })
-            .when("/user/:username", {
-                templateUrl: "user.html",
-                controller: "UserController"
+            .when('/user/:username', {
+                templateUrl: 'user.html',
+                controller: 'UserController'
             })
-            .otherwise({ redirectTo: "/main" });
+            .otherwise({ redirectTo: '/main' });
     }
-} (angular.module("app.githubViewer2", ["ngRoute"])));
+} (angular.module('app.githubViewer2', ['ngRoute'])));
