@@ -7,7 +7,14 @@
     githubFactory.$inject = ['$http'];
 
     function githubFactory($http) {
-        var getUser = function (username) {
+        var factory = {
+            getUser: getUser,
+            getRepos: getRepos
+        };
+
+        return factory;
+
+        function getUser(username) {
             var githubApiUrl = "https://api.github.com/users/";
             return $http.get(githubApiUrl + username)
                 .then(function (response) {
@@ -15,16 +22,11 @@
                 });
         };
 
-        var getRepos = function (user) {
+        function getRepos(user) {
             return $http.get(user.repos_url)
                 .then(function (response) {
                     return response.data;
                 });
-        };
-
-        return {
-            getUser: getUser,
-            getRepos: getRepos
         };
     }
 } (angular.module("app.githubViewer2")));
