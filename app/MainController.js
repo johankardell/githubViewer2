@@ -41,4 +41,4 @@
 
         startTimer();
     };
-} (angular.module("githubViewer2")));
+} (angular.module("app.githubViewer2")));

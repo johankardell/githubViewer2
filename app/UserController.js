@@ -23,4 +23,4 @@
 
         githubFactory.getUser($routeParams.username).then(onUsersComplete, onError);
     }
-} (angular.module("githubViewer2")));
+} (angular.module("app.githubViewer2")));

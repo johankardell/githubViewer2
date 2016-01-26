@@ -18,4 +18,4 @@
             })
             .otherwise({ redirectTo: "/main" });
     }
-} (angular.module("githubViewer2", ["ngRoute"])));
+} (angular.module("app.githubViewer2", ["ngRoute"])));
