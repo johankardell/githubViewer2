@@ -1,18 +1,21 @@
 /* global angular */
-'use strict';
 
-var app = angular.module("githubViewer2", ["ngRoute"]);
-
-app.config(function ($routeProvider) {
-    $routeProvider
-        .when("/main", {
-            templateUrl: "main.html",
-            controller: "MainController"
-        })
-        .when("/user/:username", {
-            templateUrl: "user.html",
-            controller: "UserController"
-        })
-        .otherwise({ redirectTo: "/main" });
-});
-
+(function (module) {
+    'use strict';
+    
+    module.config(config);
+    config.$inject = ['$routeProvider'];
+    
+    function config($routeProvider){
+        $routeProvider
+            .when("/main", {
+                templateUrl: "main.html",
+                controller: "MainController"
+            })
+            .when("/user/:username", {
+                templateUrl: "user.html",
+                controller: "UserController"
+            })
+            .otherwise({ redirectTo: "/main" });
+    }
+} (angular.module("githubViewer2", ["ngRoute"])));

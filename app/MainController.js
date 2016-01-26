@@ -1,35 +1,44 @@
-/* global app */
+/* global angular */
 
-app.controller("MainController", function ($scope, $interval, $location, $log) {
+(function (module) {
     'use strict';
-    var timerInterval = null;
+    module.controller('MainController', MainController);
+    MainController.$inject = ['$scope', '$interval', '$location', '$log']
 
-    var timerCountDown = function () {
-        $scope.timeout -= 1;
+    function MainController($scope, $interval, $location, $log) {
+        $scope.timerEnabled = timerEnabled;
+        $scope.search = search;
+        $scope.stopTimer = stopTimer;
+        $scope.timeout = 10;
+        
+        var timerInterval = null;
+        
+        var timerCountDown = function () {
+            $scope.timeout -= 1;
 
-        if ($scope.timeout <= 0) {
-            $scope.search($scope.username);
-        }
+            if ($scope.timeout <= 0) {
+                $scope.search($scope.username);
+            }
+        };
+
+        var startTimer = function () {
+            timerInterval = $interval(timerCountDown, 1000, $scope.timeout);
+        };
+
+        function timerEnabled() {
+            return timerInterval !== null;
+        };
+
+       function search (username) {
+            $log.log('Searching for ' + username);
+            $location.path("/user/" + username);
+        };
+
+        function stopTimer() {
+            $interval.cancel(timerInterval);
+            timerInterval = null;
+        };
+
+        startTimer();
     };
-
-    var startTimer = function () {
-        timerInterval = $interval(timerCountDown, 1000, $scope.timeout);
-    };
-
-    $scope.timeout = 10;
-    $scope.timerEnabled = function () {
-        return timerInterval !== null;
-    };
-
-    $scope.search = function (username) {
-        $log.log('Searching for ' + username);
-        $location.path("/user/" + username);
-    };
-
-    $scope.stopTimer = function () {
-        $interval.cancel(timerInterval);
-        timerInterval = null;
-    };
-
-    startTimer();
-});
+} (angular.module("githubViewer2")));
