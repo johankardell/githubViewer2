@@ -3,10 +3,10 @@
 (function (module) {
     'use strict';
 
-    module.controller('UserController', UserController);
-    UserController.$inject = ['$scope', '$routeParams', '$log', 'githubFactory'];
+    module.controller('UserController', userController);
+    userController.$inject = ['$scope', '$routeParams', '$log', 'githubFactory'];
 
-    function UserController($scope, $routeParams, $log, githubFactory) {
+    function userController($scope, $routeParams, $log, githubFactory) {
         activate();
 
         function activate() {

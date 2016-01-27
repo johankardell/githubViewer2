@@ -2,10 +2,10 @@
 
 (function (module) {
     'use strict';
-    module.controller('MainController', MainController);
-    MainController.$inject = ['$scope', '$interval', '$location', '$log'];
+    module.controller('MainController', mainController);
+    mainController.$inject = ['$scope', '$interval', '$location', '$log'];
 
-    function MainController($scope, $interval, $location, $log) {
+    function mainController($scope, $interval, $location, $log) {
         var timerInterval = null;
 
         $scope.search = search;
