@@ -2,7 +2,7 @@
 
 (function (module) {
     'use strict';
-    module.controller('MainController', mainController);
+    module.controller('mainController', mainController);
     mainController.$inject = ['$scope', '$interval', '$location', '$log'];
 
     function mainController($scope, $interval, $location, $log) {

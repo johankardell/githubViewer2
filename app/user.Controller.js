@@ -3,7 +3,7 @@
 (function (module) {
     'use strict';
 
-    module.controller('UserController', userController);
+    module.controller('userController', userController);
     userController.$inject = ['$scope', '$routeParams', '$log', 'githubFactory'];
 
     function userController($scope, $routeParams, $log, githubFactory) {

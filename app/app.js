@@ -10,11 +10,11 @@
         $routeProvider
             .when('/main', {
                 templateUrl: 'main.html',
-                controller: 'MainController'
+                controller: 'mainController'
             })
             .when('/user/:username', {
                 templateUrl: 'user.html',
-                controller: 'UserController'
+                controller: 'userController'
             })
             .otherwise({ redirectTo: '/main' });
     }
